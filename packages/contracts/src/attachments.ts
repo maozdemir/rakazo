@@ -1,5 +1,5 @@
 /** Default for deployments and clients connected to older servers. */
-export const ATTACHMENT_MAX_BYTES = 10 * 1024 * 1024;
+export const ATTACHMENT_MAX_BYTES = 200 * 1024 * 1024;
 export const ATTACHMENT_MAX_COUNT = 4;
 /** Shared photo preparation policy for web and mobile composers. */
 export const ATTACHMENT_IMAGE_MAX_EDGE = 1_600;
@@ -14,6 +14,7 @@ export const ATTACHMENT_IMAGE_MIME_TYPES = [
   "image/png",
   "image/webp",
   "image/gif",
+  "image/tiff",
 ] as const;
 
 export const ATTACHMENT_AUDIO_MIME_TYPES = [
@@ -33,6 +34,10 @@ export const ATTACHMENT_FILE_MIME_TYPES = [
   "text/html",
   "application/json",
   "application/zip",
+  "image/vnd.dwg",
+  "application/acad",
+  "application/x-dwg",
+  "image/x-dwg",
 ] as const;
 
 export const ATTACHMENT_ALLOWED_MIME_TYPES = [

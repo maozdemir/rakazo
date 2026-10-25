@@ -318,6 +318,8 @@ services:
       SENTRY_ENVIRONMENT: ${SENTRY_ENVIRONMENT:-}
       SENTRY_RELEASE: ${SENTRY_RELEASE:-}
     volumes:
+      - /opt/rakazo/packages/contracts/src:/app/packages/contracts/src
+      - /opt/rakazo/packages/core/src:/app/packages/core/src
       - /var/run/docker.sock:/var/run/docker.sock
       - appdata:/data
     networks:
@@ -404,6 +406,8 @@ services:
     ports:
       - "127.0.0.1:${RAKAZO_API_PORT:-3100}:3100"
     volumes:
+      - /opt/rakazo/packages/contracts/src:/app/packages/contracts/src
+      - /opt/rakazo/packages/core/src:/app/packages/core/src
       - appdata:/data
     networks:
       - app
@@ -450,6 +454,8 @@ services:
       <<: *app-environment
       GRAPHILE_WORKER_CONCURRENCY:
     volumes:
+      - /opt/rakazo/packages/contracts/src:/app/packages/contracts/src
+      - /opt/rakazo/packages/core/src:/app/packages/core/src
       - appdata:/data
     networks:
       - app
@@ -492,7 +498,9 @@ services:
       RAKAZO_CSP_SCRIPT_SRC: ${RAKAZO_CSP_SCRIPT_SRC:-}
       RAKAZO_CSP_CONNECT_SRC: ${RAKAZO_CSP_CONNECT_SRC:-}
     ports:
-      - "127.0.0.1:${RAKAZO_WEB_PORT:-5173}:5173"
+      - "0.0.0.0:${RAKAZO_WEB_PORT:-5173}:5173"
+    volumes:
+      - /opt/rakazo/apps/web/dist:/app/apps/web/dist
     networks:
       - app
     depends_on:

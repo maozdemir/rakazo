@@ -286,6 +286,9 @@ type PendingBrowserNotification = {
   groupNotification: boolean;
 };
 
+const ATTACHMENT_ACCEPT = [...ATTACHMENT_ALLOWED_MIME_TYPES, ".zip", ".tif", ".tiff", ".dwg"].join(",");
+/** Identity colour for bots the roster no longer knows about. */
+const FALLBACK_BOT_COLOR = "#85858A";
 const THREAD_SNAPSHOT_TIMEOUT_MS = 2_000;
 /** Bound Settings leave so a hung voice status refresh cannot block dismissal. */
 const VOICE_STATUS_REFRESH_TIMEOUT_MS = 10_000;
